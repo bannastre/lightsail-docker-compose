@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  front_end:
+    build: .
+    ports:
+      - '${PORT}:${PORT}'
+    networks:
+      - net
+    environment:
+      - DEBUG=app:*
+      - DB_BASE_URL=${DB_BASE_URL}
+      - DB_ENV=${DB_ENV}
+      - PORT=${PORT}
+      - DB_TABLEID_DAC6_DATA=${DB_TABLEID_DAC6_DATA}
+      - DB_TABLEID_DAC6_META=${DB_TABLEID_DAC6_META}
+      - AUTH_REQUESTED_SCOPES=${AUTH_REQUESTED_SCOPES}
+      - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
+      - AUTH_REDIRECT_URI=${AUTH_REDIRECT_URI}
+      - AUTH_POST_LOGOUT_URI=${AUTH_POST_LOGOUT_URI}
+      - AUTH_AUTHORIZATION_ENDPOINT=${AUTH_AUTHORIZATION_ENDPOINT}
+      - AUTH_TOKEN_ENDPOINT=${AUTH_TOKEN_ENDPOINT}
+      - AUTH_ENDSESSION_ENDPOINT=${AUTH_ENDSESSION_ENDPOINT}
+
+networks:
+  net:
+    name: '${APP_NAME}_net'
+
+volumes:
+  data:
+    name: '${APP_NAME}_data'
