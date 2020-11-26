@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   front_end:
-    build: .
+    image: ${IMG_REPO}/${APP_NAME}:latest
     ports:
       - '${PORT}:${PORT}'
     networks:
