@@ -21,5 +21,5 @@ curl -o /srv/docker/docker-compose.yml https://raw.githubusercontent.com/bannast
 curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercontent.com/bannastre/lightsail-docker-compose/main/docker-compose-app.service
 sudo systemctl enable docker-compose-app
 
-# start up the application via docker-compose
-docker-compose --env-file .env -f /srv/docker/docker-compose.yml up -d
+# Manually (for now) ssh into the container and execute:
+# docker-compose --env-file .env -f /srv/docker/docker-compose.yml up -d
