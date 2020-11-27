@@ -2,9 +2,9 @@ version: '3.3'
 
 services:
   front_end:
-    image: ${IMG_REPO}/${APP_NAME}:latest
+    image: '${IMG_REPO}/${APP_NAME}:${IMG_TAG}'
     ports:
-      - '${PORT}:${PORT}'
+      - ${PORT}:3000
     networks:
       - net
     environment:
@@ -12,8 +12,8 @@ services:
       - DB_BASE_URL=${DB_BASE_URL}
       - DB_ENV=${DB_ENV}
       - PORT=${PORT}
-      - DB_TABLEID_DAC6_DATA=${DB_TABLEID_DAC6_DATA}
-      - DB_TABLEID_DAC6_META=${DB_TABLEID_DAC6_META}
+      - DB_TABLEID_DATA=${DB_TABLEID_DATA}
+      - DB_TABLEID_META=${DB_TABLEID_META}
       - AUTH_REQUESTED_SCOPES=${AUTH_REQUESTED_SCOPES}
       - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
       - AUTH_REDIRECT_URI=${AUTH_REDIRECT_URI}
