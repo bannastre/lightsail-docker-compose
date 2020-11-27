@@ -4,7 +4,7 @@
 curl -sSL https://get.docker.com | sh
 
 # make it so you don't need to sudo to run docker commands
-usermod -aG docker ubuntu
+sudo usermod -aG docker ubuntu
 
 # install docker-compose
 curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
@@ -19,7 +19,7 @@ curl -o /srv/docker/docker-compose.yml https://raw.githubusercontent.com/bannast
 # copy in systemd unit file and register it so our compose file runs 
 # on system restart
 curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercontent.com/bannastre/lightsail-docker-compose/main/docker-compose-app.service
-systemctl enable docker-compose-app
+sudo systemctl enable docker-compose-app
 
 # start up the application via docker-compose
 docker-compose --env-file .env -f /srv/docker/docker-compose.yml up -d
