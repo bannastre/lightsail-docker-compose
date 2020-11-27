@@ -22,4 +22,4 @@ curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercon
 sudo systemctl enable docker-compose-app
 
 # Manually (for now) ssh into the container and execute:
-# docker-compose --env-file .env -f /srv/docker/docker-compose.yml up -d
+# PORT=3000 docker-compose --env-file .env -f /srv/docker/docker-compose.yml up -d
